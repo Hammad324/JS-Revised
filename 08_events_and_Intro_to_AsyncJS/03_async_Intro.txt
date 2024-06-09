@@ -1,0 +1,11 @@
+=> JS is a synchronus language means it is single threaded.
+=> Everything is done on a single thread, means it is slow but you never felt that, right? 
+=> IT IS SLOW but only if we use its own engine, and it is never found without a run-time environment i.e browser/ nodejs/ dino.
+=> This behaviour is for default JS.
+
+=> Each operation waits for the last one to be completed befire execution.
+
+                    Blocking VS Non-Blocking code. 
+
+            Blocks the flow of code | Does not block the flow of code.  
+            Read files synchronusly | Read file Asynchronusly         

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API request intro.</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    0	UNSENT	Client has been created. open() not called yet.<br>
+    1	OPENED	open() has been called.<br>
+    2	HEADERS_RECEIVED	send() has been called, and headers and status are available.<br>
+    3	LOADING	Downloading; responseText holds partial data.<br>
+    4	DONE	The operation is complete.<br>
+    </body>
+<script> 
+    // this method is not used now but is used in many legacy applications.
+    // it is very good to know this.
+    const requestURL = 'https://api.github.com/users/Hammad324'
+    const xhr = new XMLHttpRequest
+    xhr.open('GET', requestURL);
+    xhr.onreadystatechange = function () {
+        console.log(xhr.readyState)
+        if(xhr.readyState === 4) {
+            const data = JSON.parse(this.responseText) // yahin convert karin ge JSON mein
+            console.log(typeof data) // string data type hai object nhi isliye access nhi hota in the first place.
+            // isko pehle convert kareinge number mein.
+            console.log(data)
+            console.log((data.followers))
+            console.log((data.public_repos))
+        }
+    }
+    xhr.send();
+    // task
+    // photo
+    // followers
+    // create card 
+    // button pe click karke card display ho within the card.
+</script>
+</html>

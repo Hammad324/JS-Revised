@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="color: #fff; background-color: #212121; " >
+    <div id="buttons">
+        <button class="off">Hello</button> <br>
+        <button class="delete">Delete buttons</button> 
+        <br></div>
+
+</body>
+<script>
+    const btn = document.querySelector('.off');
+    const delBtn = document.querySelector('.delete')
+    const body = document.getElementsByTagName('body')
+    let newBtn;
+
+
+    // btn.addEventListener('click', (event) => {
+    //     //console.log(event)
+    //     // if(btn.textContent === 'Hello') {
+    //     //     btn.textContent = 'Button Clicked.'
+    //     // } else {
+    //     //     btn.textContent = 'Hello'
+    //     // }
+
+    //     // type, timeStamp, defaultPrevented
+    //     // target, toElement, srcElement, currenttarget
+    //     // clientX, clientY, screenX, screenY 
+    //     // altKey, ctrlkey, shiftKey, keyCode
+
+    //     console.log(event.type); // gives type of event
+    //     console.log(event.timeStamp); // gives timestamp, when the event occured
+    //     console.log(event.srcElement); // give the element jis se event perform hua hai.
+    //     console.log(event.currentTarget);
+    //     console.log(event.clientX); // position in X direction
+    //     console.log(event.clientY); // position in Y direction
+    //     console.log(event.screenX);
+    //     console.log(event.screenY);
+    //     console.log(event.altKey); // if altKey pressed then true
+    //     console.log(event.ctrlKey); // if ctrlKey pressed then true
+    //     console.log(event.shiftKey);
+    //     console.log(event.keyCode)    
+
+    // }, false)
+
+    btn.addEventListener('click', (event) => {
+        //console.log(event.target.className);
+        newBtn = document.createElement('button')
+        if (event.target.className === 'off') {
+            //console.log('chalgya');
+            
+            const breaks = document.createElement('br')
+            newBtn.appendChild(document.createTextNode('Hello 2'))
+            document.body.appendChild(newBtn)
+            document.body.appendChild(breaks)
+        }
+
+    }, false)
+
+    delBtn.addEventListener('click', (event) => {
+        console.log(event.target);
+        if(newBtn){
+            newBtn.parentNode.removeChild(newBtn)
+        }
+        newBtn = null
+    }, false)
+
+
+    
+</script>
+</html>

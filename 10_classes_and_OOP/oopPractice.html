@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice</title>
+</head>
+<body style="color: #fff; background-color: #212121;">
+    <form action="">
+        <label for="userName">Username Here</label>
+        <input id="userName" type="text"> <br>
+        <br>
+        <label for="userName">Password Here</label>
+        <input id="password" type="password"> <br>
+        <br>
+        <button id="button" type="submit">Submit</button>
+    </form>
+</body>
+<script>
+
+    const button = document.querySelector('#button');
+    const newUsers = []; // for storing all users
+
+    button.addEventListener('click',(event) => {
+
+        event.preventDefault();
+        //console.log(event)
+
+        const userName = document.querySelector('#userName')
+        const password = document.querySelector('#password')
+
+        toInstance(userName.value, password.value)
+
+        userName.value = '';
+        password.value = '';
+
+    })
+
+    function User(userName, password) {
+
+        this.userName = userName;
+        this.password = password;
+
+        return this
+
+    } // constructor function 
+
+    function toInstance(userName, password) {
+
+        let newUser = new User(userName, password); // instance of user constructor function
+
+        //console.log(newUser);
+        newUsers.push(newUser); // adding users to newUsers array 
+        console.log(newUsers)
+
+    } // adding values to constructor
+
+</script>
+</html>

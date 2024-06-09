@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Practice.</title>
+</head>
+<body style="background-color: #212122; color: #fff;">
+    <div class="parent">
+        <!-- It is a comment --> <!-- is case mein NodeList ki length 11 hojayegi, 13 if text wrap enbled hai to ya next line mein hai.-->
+
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+    <script>
+
+        const element = document.querySelector('.parent')
+        // console.log(element);
+        // console.log(element.children);
+        //console.log(element.children[2].innerHTML);
+
+        for (let i = 0; i < element.children.length; i++) {
+            // console.log(element.children[i].innerHTML);
+        }
+
+        element.children[1].style.color = "red";
+        element.children[3].style.fontSize = '40px';
+        element.children[3].style.backgroundColor = 'green';
+
+        // console.log(element.firstElementChild.innerHTML);
+        // console.log(element.lastElementChild.innerHTML);
+
+        // querySelector sirf pehli value deta hai or querySelectorAll sari values deta hai.
+
+        const dayOne = document.querySelector('.day');
+        //console.log(dayOne);
+        
+        //console.log(dayOne.parentElement); 
+        // directly parent element pe jane ke liye ise use karte hain.
+
+        //console.log(dayOne.nextElementSibling); 
+        // ye jo bhi NEXT ELEMENT hota hai uske second element ko deta hai.
+
+        console.log(`NODES: `, element.childNodes);
+        // iski length 9 hai if comment is not added.
+        // isemein jo bhi spaces hoti hain woh bhi count hoti hain.
+        // HTML mein single space count hota hai uske bad bhale hi 100 lines ka space dedo browser isko render nhi karta.
+        // comments bhi count hote hain.
+
+
+
+    </script>
+</body>
+</html>
+
+<!-- 16.00 NodeList -->

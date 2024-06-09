@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Request TASK.</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <div id="card" style="height: 200px; width: 300px; border: 2px solid;">
+
+    </div>
+
+    <button id="button">Click Here</button>
+    
+</body>
+<script>
+    // task
+    // photo
+    // followers
+    // create card 
+    // button pe click karke card display ho within the card.
+
+    const card = document.querySelector('#card')
+    let infoDisplayed = false;
+
+    button.addEventListener('click', (event) => {
+
+        if (infoDisplayed === false) {
+            
+            const requestURL = 'https://api.github.com/users/Hammad324';
+            //const requestURL = 'https://api.github.com/users/hiteshchoudhary';
+            //const requestURL = 'https://api.github.com/users/nwaliaez';
+
+            const xhr = new XMLHttpRequest;
+            xhr.open('GET', requestURL);
+
+            xhr.onreadystatechange = function () {
+                //console.log(xhr.readyState)
+                if(xhr.readyState === 4) {
+
+                    const data = JSON.parse(this.responseText);
+                    //console.log(data.avatar_url)
+                    //console.log(data.followers)
+
+                    const img = document.createElement('img');
+
+                    img.src = data.avatar_url
+                    img.style.height = '100px'
+                    img.style.paddingLeft = '98px'
+                    img.style.paddingTop = '30px'
+                    card.appendChild(img);
+
+                    const followers = document.createElement('h3');
+
+                    followers.innerHTML = `Followers: ${data.followers}`
+                    followers.align = 'center'
+                    card.appendChild(followers);
+                    //console.log(img)
+                    infoDisplayed = true
+                };
+            };
+
+            xhr.send();
+        }
+        // else you can just disable the button by :
+        // button.disabled = true
+    });
+</script>
+</html>

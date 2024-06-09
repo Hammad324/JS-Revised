@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Removing and Editing DOM elements.</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <h1 style="text-align: center;">Removing and Editing DOM elements</h1>
+    <ul class="language">
+        <li>JavasScript</li>
+    </ul>
+</body>
+
+<script>
+
+    const addlanguage = (langName) => { 
+        // optimized approach, because DOM tree pora treverse nhi karna parrha hai.
+        // ...langName spread operator can be used to give in multiple values of a single input.
+        const newLi = document.createElement('li');
+        //const text = document.createTextNode(`${langName}`);
+        newLi.appendChild(document.createTextNode(`${langName}`));
+        const element = document.querySelector('.language').appendChild(newLi)
+        //console.log(element); 
+    };
+
+    addlanguage("Python");
+    addlanguage("Rust");
+    addlanguage("GoLang");
+
+    // Editing Elements.
+
+    // 1st example.
+
+    const secondLang = document.querySelector('li:nth-child(2)'); 
+    // selecting the element that we have to change.
+    const newLi = document.createElement('li');
+    // creating the element that will replace the previous one.
+    newLi.appendChild(document.createTextNode('Mojo'));
+    secondLang.replaceWith(newLi); 
+    // replacing the previous element with the new one.
+
+    // 2nd example.
+    // replacing JS with TS.
+
+    const firstLang = document.querySelector('li:nth-child(1)');
+    //console.log(firstLang);
+    const newElement = document.createElement('li');
+    newElement.appendChild(document.createTextNode('TypeScript'));
+    //document.querySelector('li:nth-child(1)').replaceWith(newElement);
+    //you can opt the above method aswell.
+    firstLang.replaceWith(newElement);
+
+    //or directly use outerHTML
+    //firstLang.outerHTML = '<li>TypeScript</li>' 
+
+    // Removing Elements.
+
+    // direct method.
+    document.querySelector('li:last-child').remove();
+
+    // isse karlo warna.
+    // const lastLang = document.querySelector('li:last-child')
+    // lastLang.remove();
+
+</script>
+</html>

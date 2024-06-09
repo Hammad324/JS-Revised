@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
+    <div>
+        <ul id="images" style="cursor: pointer;">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+/*     
+    document.getElementById('owl').onclick = () => {
+        alert(`Owl Clicked!`);
+    } 
+
+    //this approach does not give us many features while directly applying onclick event in html leads to further problems when the application is scaled, this does not happen in REACT. But we are talking about vanilla JS.
+
+    // Using event listners is recommended.
+*/
+    // false yhan pe default hota hai.
+
+    // to study about.
+    // type, timeStamp, defaultPrevented
+    // target, toElement, srcElement, currenttarget
+    // clientX, clientY, screenX, screenY 
+    // altKey, ctrlkey, shiftKey, keyCode
+
+        //console.log(e.timeStamp)
+        // e is an evemt object.
+        // mostly browser and environment ke events milte hain.
+
+    //document.getElementById('').addEventListener('click', (e) => {
+        // event propogation: 
+        // event bubbling, event capturing.
+        // bubbling inside to outside hota hai.
+        // capturing outside to insid hota hai.
+        // false ke case mein event bubbling kaha jata hai isko.
+
+    //}, false);
+
+    // document.getElementById('images').addEventListener('click', (event) => {
+    //     console.log('clicked inside the ul.');
+    // }, false); 
+    // // true will stop taking the event beloiw it.
+
+    // document.getElementById('owl').addEventListener('click', (event) => {
+    //     console.log('clicked on owl.'); 
+    //     // clicked on owl
+    //     // clicked inside the ul.
+
+    //     // ye event bubbling horahi hai, to stop it we can use a method to stop it.
+    //     event.stopPropagation();
+    // }, false);
+
+    // document.getElementById('google').addEventListener('click', (event) => {
+    //     console.log('clicked on google link.')
+    //     event.stopPropagation();
+    //     event.preventDefault(); // this stops the default behaviour.
+    // }, false);
+
+    const div = document.getElementById('images');
+
+    div.addEventListener('click', (event) => {
+
+        event.preventDefault(); // prevents default action.
+        //div.style.display = 'none'; // sare direct ghayab karane ke liye
+        // ik ik karke ghayab karne ke liye.
+        // parentNode kisi bhi element ke parent ko select karne ke liye zaroori hoti hai.
+        console.log(`TAGNAME: ${event.target.tagName}`);
+
+        if (event.target.tagName === 'IMG') { // condition
+            console.log(`ID: ${event.target.id}`); // loggong the id
+            let removeIt = event.target.parentNode; // selection of parentNode
+            removeIt.remove(); // removing the node.
+        }
+
+    }, false);
+
+</script>
+</html>

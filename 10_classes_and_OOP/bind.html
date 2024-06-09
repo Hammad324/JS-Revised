@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>Button Clicked.</button>
+</body>
+<script>
+
+    class React {
+        constructor() {
+            this.library = 'React'
+            this.server = 'https://localhost:3000/'
+
+            document
+            .querySelector('button')
+            .addEventListener('click', this.handleClick.bind(this)) // An object to which the this keyword can refer inside the new function.
+            // The .bind(this) ensures that 'this' inside handleClick refers to the current instance of the React class.
+        } 
+
+        // req
+
+        handleClick() {
+            try {
+                console.log(`server: ${this.server}`)
+            } catch (error) {
+                console.log(`Wrong Input`)
+            }
+        }
+    }
+    
+    const app = new React()
+    console.log(app)
+    
+</script>
+</html>
